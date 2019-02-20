@@ -1,5 +1,6 @@
 
 cmake_minimum_required(VERSION 3.9)
+set(CMAKE_OSX_DEPLOYMENT_TARGET, "10.12")
 project(rmc-libppdemo)
 
 #[===========================================[
