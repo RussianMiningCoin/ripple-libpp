@@ -60,7 +60,7 @@ bool demonstrateSigning(std::string seedStr, std::string expectedAccount)
 
     auto const seed = parseGenericSeed(seedStr);
     assert(seed);
-    auto const keypair = generateKeyPair(*seed);
+    auto const keypair = generateKeyPair(*seed, true);
     auto const id = calcAccountID(keypair.first);
     assert(toBase58(id) == expectedAccount);
 
@@ -205,7 +205,7 @@ public:
     Credentials (std::string name)
     : name_ (name)
     , seed_ (getSeed (name_))
-    , keys_ (ripple::generateKeyPair (seed_))
+    , keys_ (ripple::generateKeyPair (seed_, true))
     , id_ (ripple::calcAccountID (keys_.first))
     {
     }
